@@ -1,9 +1,0 @@
-<Rocket>
-  <Stage>
-    <Engines>
-      <Thrust>10000</Thrust>
-      <Expansion_ratio>10000</Expansion_ratio>
-      <mdot>10000</mdot>
-    </Engines>
-  </Stage>
-</Rocket>
