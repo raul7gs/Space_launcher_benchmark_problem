@@ -1,0 +1,9 @@
+<Rocket>
+  <Trayectory>
+    <Height>1000</Height>
+    <Velocity>6</Velocity>
+  </Trayectory>
+  <Structure>
+    <Max_q>0.8</Max_q>
+  </Structure>
+</Rocket>

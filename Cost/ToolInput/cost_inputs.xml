@@ -1,0 +1,27 @@
+<Rocket>
+  <Stage>
+    <Engines>
+      <Solid>
+        <SRB>1</SRB>
+        <P80>1</P80>
+        <GEM60>1</GEM60>
+      </Solid>
+      <Liquid>
+        <VULCAIN>1</VULCAIN>
+        <RS68>1</RS68>
+        <S-IVB>1</S-IVB>
+      </Liquid>
+      <Thrust>10000</Thrust>
+    </Engines>
+    <Mass>
+      <Propellant>1000</Propellant>
+      <Hydrogen>1000</Hydrogen>
+      <LOX>1000</LOX>
+      <Casing>1</Casing>
+      <Structure>1</Structure>
+      <Tanks>1</Tanks>
+      <Insulation>1</Insulation>
+      <Pumps>1</Pumps>
+    </Mass>
+  </Stage>
+</Rocket>

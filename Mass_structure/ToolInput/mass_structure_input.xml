@@ -1,0 +1,32 @@
+<Rocket>
+  <Stage UID="stage_{INDEX}">
+    <Engines>
+      <Solid>
+        <SRB>1</SRB>
+        <P80>1</P80>
+        <GEM60>1</GEM60>
+      </Solid>
+      <Liquid>
+        <VULCAIN>1</VULCAIN>
+        <RS68>1</RS68>
+        <S-IVB>1</S-IVB>
+      </Liquid>
+      <Thrust>10000</Thrust>
+      <Expansion_ratio>10000</Expansion_ratio>
+    </Engines>
+    <Mass>
+      <Propellant>1000</Propellant>
+    </Mass>
+    <Geometry>
+      <Length>1</Length>
+      <Oxidizer_tank_volume>1</Oxidizer_tank_volume>
+      <Oxidizer_tank_surface>1</Oxidizer_tank_surface>
+      <Fuel_tank_volume>1</Fuel_tank_volume>
+      <Fuel_tank_surface>1</Fuel_tank_surface>
+      <Head_surface>35</Head_surface>
+    </Geometry>
+  </Stage>
+  <Geometry>
+    <Diameter>6</Diameter>
+  </Geometry>
+</Rocket>
