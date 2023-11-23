@@ -1,0 +1,9 @@
+<Rocket>
+  <Stage>
+    <Mass>
+      <Propellant>1000</Propellant>
+      <Hydrogen>1000</Hydrogen>
+      <LOX>1000</LOX>
+    </Mass>
+  </Stage>
+</Rocket>

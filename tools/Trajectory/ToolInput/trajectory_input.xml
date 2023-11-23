@@ -1,0 +1,24 @@
+<Rocket>
+  <Stage UID="stage_{INDEX}">
+    <Engines>
+      <mdot>10000</mdot>
+      <Thrust>10000</Thrust>
+    </Engines>
+    <Mass>
+      <Propellant>1000</Propellant>
+      <Hydrogen>1000</Hydrogen>
+      <LOX>1000</LOX>
+      <Casing>1</Casing>
+      <Structure>1</Structure>
+      <Tanks>1</Tanks>
+      <Insulation>1</Insulation>
+      <Pumps>1</Pumps>
+    </Mass>
+  </Stage>
+  <Geometry>
+    <L_ratio_ellipse>1</L_ratio_ellipse>
+    <Head_shape>Cone</Head_shape>
+    <Cone_angle>60</Cone_angle>
+    <Diameter>6</Diameter>
+  </Geometry>
+</Rocket>

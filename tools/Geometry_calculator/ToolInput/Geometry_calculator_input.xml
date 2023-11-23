@@ -1,0 +1,25 @@
+<Rocket>
+  <Stage>
+    <Engines>
+      <Solid>
+        <SRB>1</SRB>
+        <P80>1</P80>
+        <GEM60>1</GEM60>
+      </Solid>
+      <Liquid>
+        <VULCAIN>1</VULCAIN>
+        <RS68>1</RS68>
+        <S-IVB>1</S-IVB>
+      </Liquid>
+    </Engines>
+    <Geometry>
+      <Length>1</Length>
+    </Geometry>
+  </Stage>
+  <Geometry>
+    <L_ratio_ellipse>1</L_ratio_ellipse>
+    <Head_shape>Cone</Head_shape>
+    <Cone_angle>60</Cone_angle>
+    <L_D>6</L_D>
+  </Geometry>
+</Rocket>

@@ -1,0 +1,21 @@
+<Rocket>
+  <Stage>
+    <Engines>
+      <Solid>
+        <SRB>1</SRB>
+        <P80>1</P80>
+        <GEM60>1</GEM60>
+      </Solid>
+      <Liquid>
+        <VULCAIN>1</VULCAIN>
+        <RS68>1</RS68>
+        <S-IVB>1</S-IVB>
+      </Liquid>
+    </Engines>
+    <Geometry>
+      <Oxidizer_tank_volume>1</Oxidizer_tank_volume>
+      <Fuel_tank_volume>1</Fuel_tank_volume>
+      <Stage_volume>1</Stage_volume>
+    </Geometry>
+  </Stage>
+</Rocket>

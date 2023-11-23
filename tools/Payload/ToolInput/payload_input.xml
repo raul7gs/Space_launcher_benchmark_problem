@@ -1,0 +1,7 @@
+<Rocket>
+  <Payload>
+    <Available_volume>100</Available_volume>
+    <Mass>0.8</Mass>
+    <Density>0.8</Density>
+  </Payload>
+</Rocket>
