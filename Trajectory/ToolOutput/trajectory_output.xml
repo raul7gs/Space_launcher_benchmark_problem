@@ -1,9 +1,0 @@
-<Rocket>
-  <Trajectory>
-    <Height>1000</Height>
-    <Velocity>6</Velocity>
-  </Trajectory>
-  <Payload>
-    <Mass>0.8</Mass>
-  </Payload>
-</Rocket>
