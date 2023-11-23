@@ -1,8 +1,0 @@
-<Rocket>
-  <Stage>
-    <Engines>
-      <Thrust>10000</Thrust>
-      <mdot>10000</mdot>
-    </Engines>
-  </Stage>
-</Rocket>
