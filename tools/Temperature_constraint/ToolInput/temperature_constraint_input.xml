@@ -1,9 +1,0 @@
-<Rocket>
-  <Trajectory>
-    <Height>1000</Height>
-    <Velocity>6</Velocity>
-  </Trajectory>
-  <Temperature>
-    <T_max>0.8</T_max>
-  </Temperature>
-</Rocket>
