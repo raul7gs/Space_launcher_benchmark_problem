@@ -13,7 +13,7 @@ def read_input(path):
     tree = ET.parse(path)
     root = tree.getroot()
 
-    # The number of engines of each possible model are taken from the XML input file.
+    # The number of engines of each possible stage are taken from the XML input file.
     vulcain = len(root.findall("Stage/Engines/Liquid/VULCAIN"))
     rs68 = len(root.findall("Stage/Engines/Liquid/RS68"))
     s_ivb = len(root.findall("Stage/Engines/Liquid/SIVB"))
