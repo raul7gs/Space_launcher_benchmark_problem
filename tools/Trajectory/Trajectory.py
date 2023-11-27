@@ -100,41 +100,27 @@ def calculate(cone_angle, length_ratio, diameter, T_stages, m_structural_stages,
 
     # Start of the loop for the maximum payload mass calculation
     while feasible == 1:
-
-        # First stage
-        h_first = []
-        v_first = []
-        stage = 0
-        T = T_stages[stage]
-        gamma = 90 * np.pi / 180
-        alpha = 0
-        m_unloaded = sum(m_structural_stages[stage:])
-        m0 = m_unloaded + sum(mp_stages[stage:])
-        mdot = mdot_stages[stage]
-
-        g = 9.81
-        tfinal = mp_stages[stage] / mdot - 5
-        t = np.linspace(0, tfinal, 500)
-        sol = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[0, 0], t_eval=t)
-        h = sol.y[0]
-        v = sol.y[1]
-        pos, = np.where(h > 10000)
-
-        if len(pos) == 0 and stage < stages_max:  # This means that a second rocket stage is available and needed
-            h_first.append(h.tolist())
-            v_first.append(v.tolist())
-            stage = stage + 1
+        try:
+            # First stage
+            h_first = []
+            v_first = []
+            stage = 0
             T = T_stages[stage]
+            gamma = 90 * np.pi / 180
+            alpha = 0
             m_unloaded = sum(m_structural_stages[stage:])
             m0 = m_unloaded + sum(mp_stages[stage:])
             mdot = mdot_stages[stage]
+
+            g = 9.81
             tfinal = mp_stages[stage] / mdot - 5
             t = np.linspace(0, tfinal, 500)
-            sol = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h[-1], v[-1]], t_eval=t)
+            sol = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[0, 0], t_eval=t)
             h = sol.y[0]
             v = sol.y[1]
             pos, = np.where(h > 10000)
-            if len(pos) == 0 and stage < stages_max:  # This means that a third rocket stage is available and needed
+
+            if len(pos) == 0 and stage < stages_max:  # This means that a second rocket stage is available and needed
                 h_first.append(h.tolist())
                 v_first.append(v.tolist())
                 stage = stage + 1
@@ -148,62 +134,61 @@ def calculate(cone_angle, length_ratio, diameter, T_stages, m_structural_stages,
                 h = sol.y[0]
                 v = sol.y[1]
                 pos, = np.where(h > 10000)
-                if len(pos) == 0:
+                if len(pos) == 0 and stage < stages_max:  # This means that a third rocket stage is available and needed
                     h_first.append(h.tolist())
                     v_first.append(v.tolist())
+                    stage = stage + 1
+                    T = T_stages[stage]
+                    m_unloaded = sum(m_structural_stages[stage:])
+                    m0 = m_unloaded + sum(mp_stages[stage:])
+                    mdot = mdot_stages[stage]
+                    tfinal = mp_stages[stage] / mdot - 5
+                    t = np.linspace(0, tfinal, 500)
+                    sol = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h[-1], v[-1]], t_eval=t)
+                    h = sol.y[0]
+                    v = sol.y[1]
+                    pos, = np.where(h > 10000)
+                    if len(pos) == 0:
+                        h_first.append(h.tolist())
+                        v_first.append(v.tolist())
+                    else:
+                        h_append = h[0:pos[0]]
+                        v_append = v[0:pos[0]]
+                        h_first.append(h_append.tolist())
+                        v_first.append(v_append.tolist())
                 else:
                     h_append = h[0:pos[0]]
                     v_append = v[0:pos[0]]
                     h_first.append(h_append.tolist())
                     v_first.append(v_append.tolist())
-            else:
+            elif len(pos) > 0:
                 h_append = h[0:pos[0]]
                 v_append = v[0:pos[0]]
                 h_first.append(h_append.tolist())
                 v_first.append(v_append.tolist())
-        elif len(pos) > 0:
-            h_append = h[0:pos[0]]
-            v_append = v[0:pos[0]]
-            h_first.append(h_append.tolist())
-            v_first.append(v_append.tolist())
-        else:
-            h_first.append(h.tolist())
-            v_first.append(v.tolist())
+            else:
+                h_first.append(h.tolist())
+                v_first.append(v.tolist())
 
-        # Second stage
-        h_0 = h[pos[0]]
-        v_0 = v[pos[0]]
-        t_0 = t[pos[0]]
-        m0 = m0 - mdot * t_0
-        mp_remaining = mp_stages[stage] - mdot * t_0  # It could be that the previous stage did not finish
-        h_second = []
-        v_second = []
+            # Second stage
+            h_0 = h[pos[0]]
+            v_0 = v[pos[0]]
+            t_0 = t[pos[0]]
+            m0 = m0 - mdot * t_0
+            mp_remaining = mp_stages[stage] - mdot * t_0  # It could be that the previous stage did not finish
+            h_second = []
+            v_second = []
 
-        alpha = 5 * np.pi / 180
-        gamma = 135 * np.pi / 180
+            alpha = 5 * np.pi / 180
+            gamma = 135 * np.pi / 180
 
-        tfinal = mp_remaining / mdot - 5
-        t = np.linspace(0, tfinal, 500)
-        sol2 = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h_0, v_0], t_eval=t)
-        h = sol2.y[0]
-        v = sol2.y[1]
-        pos2, = np.where(h > 100000)
-        if len(pos2) == 0 and stage < stages_max:  # This means that a second rocket stage is available and needed
-            h_second.append(h.tolist())
-            v_second.append(v.tolist())
-            stage = stage + 1
-            mp_remaining = mp_stages[stage]
-            T = T_stages[stage]
-            m_unloaded = sum(m_structural_stages[stage:])
-            m0 = m_unloaded + sum(mp_stages[stage:])
-            mdot = mdot_stages[stage]
-            tfinal = mp_stages[stage] / mdot - 5
+            tfinal = mp_remaining / mdot - 5
             t = np.linspace(0, tfinal, 500)
-            sol2 = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h[-1], v[-1]], t_eval=t)
+            sol2 = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h_0, v_0], t_eval=t)
             h = sol2.y[0]
             v = sol2.y[1]
             pos2, = np.where(h > 100000)
-            if len(pos2) == 0 and stage < stages_max:  # This means that a third rocket stage is available and needed
+            if len(pos2) == 0 and stage < stages_max:  # This means that a second rocket stage is available and needed
                 h_second.append(h.tolist())
                 v_second.append(v.tolist())
                 stage = stage + 1
@@ -218,46 +203,52 @@ def calculate(cone_angle, length_ratio, diameter, T_stages, m_structural_stages,
                 h = sol2.y[0]
                 v = sol2.y[1]
                 pos2, = np.where(h > 100000)
-                if len(pos2) == 0:
+                if len(pos2) == 0 and stage < stages_max:  # This means that a third rocket stage is available and needed
                     h_second.append(h.tolist())
                     v_second.append(v.tolist())
+                    stage = stage + 1
+                    mp_remaining = mp_stages[stage]
+                    T = T_stages[stage]
+                    m_unloaded = sum(m_structural_stages[stage:])
+                    m0 = m_unloaded + sum(mp_stages[stage:])
+                    mdot = mdot_stages[stage]
+                    tfinal = mp_stages[stage] / mdot - 5
+                    t = np.linspace(0, tfinal, 500)
+                    sol2 = solve_ivp(fun=first_stage, t_span=[t[0], t[-1]], y0=[h[-1], v[-1]], t_eval=t)
+                    h = sol2.y[0]
+                    v = sol2.y[1]
+                    pos2, = np.where(h > 100000)
+                    if len(pos2) == 0:
+                        h_second.append(h.tolist())
+                        v_second.append(v.tolist())
+                    else:
+                        h_append = h[0:pos2[0]]
+                        v_append = v[0:pos2[0]]
+                        h_second.append(h_append.tolist())
+                        v_second.append(v_append.tolist())
                 else:
                     h_append = h[0:pos2[0]]
                     v_append = v[0:pos2[0]]
                     h_second.append(h_append.tolist())
                     v_second.append(v_append.tolist())
-            else:
+            elif len(pos2) > 0:
                 h_append = h[0:pos2[0]]
                 v_append = v[0:pos2[0]]
                 h_second.append(h_append.tolist())
                 v_second.append(v_append.tolist())
-        elif len(pos2) > 0:
-            h_append = h[0:pos2[0]]
-            v_append = v[0:pos2[0]]
-            h_second.append(h_append.tolist())
-            v_second.append(v_append.tolist())
-        else:
-            h_second.append(h.tolist())
-            v_second.append(v.tolist())
+            else:
+                h_second.append(h.tolist())
+                v_second.append(v.tolist())
 
-        # Third stage
-        v_0 = v[pos2[0]]
-        t_0 = t[pos2[0]]
-        m0 = m0 - mdot * t_0
-        mp_remaining = mp_remaining - mdot * t_0
-        delta_v = T / mdot * np.log((m0 + mpay) / (m0 + mpay - mp_remaining))
-        v_final = v_0 / 2 + delta_v
+            # Third stage
+            v_0 = v[pos2[0]]
+            t_0 = t[pos2[0]]
+            m0 = m0 - mdot * t_0
+            mp_remaining = mp_remaining - mdot * t_0
+            delta_v = T / mdot * np.log((m0 + mpay) / (m0 + mpay - mp_remaining))
+            v_final = v_0 / 2 + delta_v
 
-        if stage < stages_max:
-            stage = stage + 1
-            T = T_stages[stage]
-            m_unloaded = sum(m_structural_stages[stage:])
-            m0 = m_unloaded + sum(mp_stages[stage:])
-            mdot = mdot_stages[stage]
-            tfinal = mp_stages[stage] / mdot
-            delta_v = T / ((m0 + mpay) - mdot * tfinal) * tfinal
-            v_final = v_final + delta_v
-            if stage < stages_max:    # More stages are available
+            if stage < stages_max:
                 stage = stage + 1
                 T = T_stages[stage]
                 m_unloaded = sum(m_structural_stages[stage:])
@@ -266,23 +257,34 @@ def calculate(cone_angle, length_ratio, diameter, T_stages, m_structural_stages,
                 tfinal = mp_stages[stage] / mdot
                 delta_v = T / ((m0 + mpay) - mdot * tfinal) * tfinal
                 v_final = v_final + delta_v
+                if stage < stages_max:    # More stages are available
+                    stage = stage + 1
+                    T = T_stages[stage]
+                    m_unloaded = sum(m_structural_stages[stage:])
+                    m0 = m_unloaded + sum(mp_stages[stage:])
+                    mdot = mdot_stages[stage]
+                    tfinal = mp_stages[stage] / mdot
+                    delta_v = T / ((m0 + mpay) - mdot * tfinal) * tfinal
+                    v_final = v_final + delta_v
 
-        # Orbit minimum speed
-        mu = 3.986004418e14
-        r_earth = 6378e3
-        h = 400e3
-        v_orbit = (mu / (r_earth + h)) ** 0.5
+            # Orbit minimum speed
+            mu = 3.986004418e14
+            r_earth = 6378e3
+            h = 400e3
+            v_orbit = (mu / (r_earth + h)) ** 0.5
 
-        if v_final > v_orbit:    # It is checked if the rocket was able to reach the orbit
-            feasible = 1
-            mpay = mpay + 100
-            h1 = [item for sublist in h_first for item in sublist]
-            h2 = [item for sublist in h_second for item in sublist]
-            v1 = [item for sublist in v_first for item in sublist]
-            v2 = [item for sublist in v_second for item in sublist]
-            h_vector = h1 + h2
-            v_vector = v1 + v2
-        else:
+            if v_final > v_orbit:    # It is checked if the rocket was able to reach the orbit
+                feasible = 1
+                mpay = mpay + 100
+                h1 = [item for sublist in h_first for item in sublist]
+                h2 = [item for sublist in h_second for item in sublist]
+                v1 = [item for sublist in v_first for item in sublist]
+                v2 = [item for sublist in v_second for item in sublist]
+                h_vector = h1 + h2
+                v_vector = v1 + v2
+            else:
+                feasible = 0
+        except IndexError:
             feasible = 0
 
     mpay = max(mpay - 100, 0)
@@ -326,7 +328,7 @@ def write_output(path, mpay, h_vector, v_vector):
 
 def run():
     """Execution of the tool"""
-    
+
     cone_angle, length_ratio, diameter, t_stages, m_structural_stages, mp_stages, mdot_stages = \
         read_input('ToolInput/toolinput.xml')
     mpay, h_vector, v_vector = calculate(cone_angle, length_ratio, diameter, t_stages, m_structural_stages, mp_stages,
