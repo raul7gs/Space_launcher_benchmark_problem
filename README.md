@@ -1,8 +1,7 @@
 # Space launcher benchmark problem
 This Github repository contains all the necessary element to execute the dynamic MDA regarding the multistage launcher problem widely discussed in (thesis link). Multiple design disciplines are used together to design a launcher that maximizes the mass of payload to be lifted to a circular orbit while reducing the cost. Different constraints are also added to ensure the design feasibility. The problem is intended to be executed in RCE. There are three different folders in the repository. The first folder contains the RCE workflow file. The second folder contains some example architectures to observe the dynamic behaviour in the execution process.  Finally, the third folder contains all the tools that are needed to be integrated in RCE to execute the problem.
 
-![cohetes(2)](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/c297b785-54f5-4698-9dc5-38b07f2f1fbb)
-
+![cohetes(2)](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/6d7c0382-e0bd-44dd-ae71-e342352584ef)
 
 # Integration of tools in the workflow
 
