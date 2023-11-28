@@ -26,9 +26,9 @@ PD: In the case of the trajectory and the structural constraint tools, it is nec
 
 Once all the tools have been integrated both in RCE and in the workflow file, click twice on the input provider (top left block). After that, click inside the properties window in the output file called XML and afterward on edit. Here select the one of the XML files from the XML folder (after clicking on the "Select from project" button).
 
-Once this is done, it is just necessary to press play. It is important to remark that is necessary to have Python installed to execute the workflow. RCE will ask before execution for the location of a Python executable, which can be found in the folder where Python is installed.
+Once this is done, it is just necessary to press play. It is important to remark that is necessary to have Python installed to execute the workflow (as well as the environment mentioned previously). RCE will ask before execution for the location of a Python executable, which can be found in the folder where Python is installed.
 
-Regarding the two examples given, the first one contains an architecture with both a cosine and a sine term. In this architecture, it is indicated that the C discipline should only consider the data coming from the Y discipline. The second file contains the solution found during the optimization process, which allows to observe discipline repetition and activation, as well as conditional variables during the execution process.
+There are three examples in this repository, each one with a different number of stages. All of them are feasible and optimum desings. There are different head shapes and types of propulsion, so that all the architectural influences can be observed.
 
 # How to observe the process and the results
 
@@ -42,13 +42,15 @@ PD: To try more architectures, just modifify the one of the XML workflow files. 
 
 Right now, the repository only contains the MDA file, so the analysis can be tested, but not the optimization. To perform the optimization, a tool integrating ADORE was used. In the future, an open-source file able to perform the optimization process might be added to the repository. In the meantime, some pieces of advice are given for the user in case it is wanted to implement the optimization. First, it is necessary to remove from all iterator blocks the line stating "RCE.close_all_outputs()", which allows to not end the process after only a full analysis is executed. Then, it is necessary to add an optimizer. There are two possibilities. The first recommended option is to use RCE default optimizer, being necessary to include all the design variables (including the architectural decisions) mentioned in the thesis. A second possible option would be to add an external architecture generator that is open source, as it might be that there are some of them available on the Internet.
 
-If it is achieved to be done correctly, the optimization problem could be solved and a solution close to the one included in this repository should be obtained. It is warned to the user that the design space shape is really complex, which can cause great difficulties to the optimization algorithm to find the solution. An SBO algorithm was used in the case of the thesis, which has been found to work better for this specific problem with respect to other mixed-discrete algorithms, such as NSGA-II.
+If it is achieved to be done correctly, the optimization problem could be solved and a Pareto front could be obtained. For reference, the thesis prohect mentioned before could be used.
 
 # Brother project
 
-This problem has a brother problem based on the design of a multistage space launcher. Its repository can be found in https://github.com/raul7gs/Space_launcher_benchmark_problem
+This problem has a brother problem based on Fourier series. Its repository can be found in https://github.com/raul7gs/Fourier-benchmark-problem/tree/main
 
 # Contact information
 
 In case the reader finds any error during the execution process, please report it on the email later attached. Also it is encouraged to contact the author in case any problem is found in the MDA implementation process (or even in a possible approach to implement the optimization process)
+
+Email: raulgarcia.alh@gmail.com 
 
