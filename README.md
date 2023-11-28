@@ -2,7 +2,7 @@
 This Github repository contains all the necessary element to execute the dynamic MDA regarding the multistage launcher problem widely discussed in (thesis link). Multiple design disciplines are used together to design a launcher that maximizes the mass of payload to be lifted to a circular orbit while reducing the cost. Different constraints are also added to ensure the design feasibility. The problem is intended to be executed in RCE. There are three different folders in the repository. The first folder contains the RCE workflow file. The second folder contains some example architectures to observe the dynamic behaviour in the execution process.  Finally, the third folder contains all the tools that are needed to be integrated in RCE to execute the problem.
 
 <p align="center">
-<img width="356" alt="tutorialrce" src="https://github.com/raul7gs/Fourier-benchmark-problem/assets/116161286/cda1491b-c166-4442-8cf2-868c33fb5a8f">
+<img width="356" alt="tutorialrce" src="[https://github.com/raul7gs/Fourier-benchmark-problem/assets/116161286/cda1491b-c166-4442-8cf2-868c33fb5a8f](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/0e90513f-0ed3-4d78-a862-5866a67904cf)">
 </p>
 
 
@@ -11,7 +11,8 @@ This Github repository contains all the necessary element to execute the dynamic
 Before executing any architecture, it is necessary to integrate the tools in RCE. The process is the following:
 1. First download the tools folder and the wokflow file.
 2. Open the RCE workflow found in the repository.
-3. In RCE, click on "Tool integration" (upper bar) and then on "Integrate tool".
+3. In RCE, click 
+on "Tool integration" (upper bar) and then on "Integrate tool".
 4. Then select the option to create a new tool from a template and afterwards the option with the return directory.
 5. In the next window (tool description) introduce a name to identify the tool wanted to be integrated.
 6. Press next twice until you arrive to the Launch setting window. Here press on the Add button. In the Tool directory press again on the three dots and select the folder with the location of the tool (the Y discipline for example). Then input a version (for example 1.0) and click on "Create arbitrary directory". Press OK and next.
