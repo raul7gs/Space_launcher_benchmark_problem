@@ -3,6 +3,11 @@ This Github repository contains all the necessary element to execute the dynamic
 
 ![cohetes(2)](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/cfb403c9-fd98-4b4c-bfc3-14e384bd2a48)
 
+<p align="center">
+  <img src="http://some_place.com/image.png" />
+</p>
+
+
 # Integration of tools in the workflow
 
 Before executing any architecture, it is necessary to integrate the tools in RCE. The process is the following:
