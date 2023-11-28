@@ -3,6 +3,3 @@ This Github repository contains all the necessary element to execute the dynamic
 
 ![cohetes(2)](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/cfb403c9-fd98-4b4c-bfc3-14e384bd2a48)
 
-![cohetes](https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/9075921a-cec3-40d0-bb07-8aee553df0da)
-
-
