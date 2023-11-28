@@ -46,7 +46,7 @@ If it is achieved to be done correctly, the optimization problem could be solved
 
 # Brother project
 
-This problem has a brother problem based on Fourier series. Its repository can be found in https://github.com/raul7gs/Fourier-benchmark-problem/tree/main
+This problem has a brother problem based on Fourier series. Its repository can be found in https://github.com/raul7gs/Fourier-benchmark-problem
 
 # Contact information
 
