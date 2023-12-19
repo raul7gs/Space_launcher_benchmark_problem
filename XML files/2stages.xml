@@ -1,1 +1,32 @@
-<Rocket><Stage UID="stage_1"><Engines><Liquid><VULCAIN/></Liquid></Engines><Geometry><Length>20.37</Length></Geometry></Stage><Stage UID="stage_2"><Engines><Liquid><VULCAIN/></Liquid></Engines><Geometry><Length>6.8</Length></Geometry></Stage><Geometry><Head_shape>Sphere</Head_shape><L_D>11.32</L_D></Geometry><Structure><Max_q>50000.0</Max_q></Structure><Payload><Density>2810.0</Density></Payload></Rocket>
+<Rocket>
+    <Stage UID="stage_1">
+        <Engines>
+            <Liquid>
+                <VULCAIN/>
+            </Liquid>
+        </Engines>
+        <Geometry>
+            <Length>20.37</Length>
+        </Geometry>
+    </Stage>
+    <Stage UID="stage_2">
+        <Engines>
+            <Liquid>
+                <VULCAIN/>
+            </Liquid>
+        </Engines>
+        <Geometry>
+            <Length>6.8</Length>
+        </Geometry>
+    </Stage>
+    <Geometry>
+        <Head_shape>Sphere</Head_shape>
+        <L_D>11.32</L_D>
+    </Geometry>
+    <Structure>
+        <Max_q>50000.0</Max_q>
+    </Structure>
+    <Payload>
+        <Density>2810.0</Density>
+    </Payload>
+</Rocket>
