@@ -1,1 +1,43 @@
-<Rocket><Stage UID="stage_1"><Engines><Solid><SRB/></Solid></Engines><Geometry><Length>32.76</Length></Geometry></Stage><Stage UID="stage_2"><Engines><Liquid><SIVB/></Liquid></Engines><Geometry><Length>22.39</Length></Geometry></Stage><Stage UID="stage_3"><Engines><Liquid><RS68/></Liquid></Engines><Geometry><Length>22.53</Length></Geometry></Stage><Geometry><Head_shape>Elliptical</Head_shape><L_ratio_ellipse>0.175</L_ratio_ellipse><L_D>17.55</L_D></Geometry><Structure><Max_q>50000.0</Max_q></Structure><Payload><Density>2810.0</Density></Payload></Rocket>
+<Rocket>
+    <Stage UID="stage_1">
+        <Engines>
+            <Solid>
+                <SRB/>
+            </Solid>
+        </Engines>
+        <Geometry>
+            <Length>32.76</Length>
+        </Geometry>
+    </Stage>
+    <Stage UID="stage_2">
+        <Engines>
+            <Liquid>
+                <SIVB/>
+            </Liquid>
+        </Engines>
+        <Geometry>
+            <Length>22.39</Length>
+        </Geometry>
+    </Stage>
+    <Stage UID="stage_3">
+        <Engines>
+            <Liquid>
+                <RS68/>
+            </Liquid>
+        </Engines>
+        <Geometry>
+            <Length>22.53</Length>
+        </Geometry>
+    </Stage>
+    <Geometry>
+        <Head_shape>Elliptical</Head_shape>
+        <L_ratio_ellipse>0.175</L_ratio_ellipse>
+        <L_D>17.55</L_D>
+    </Geometry>
+    <Structure>
+        <Max_q>50000.0</Max_q>
+    </Structure>
+    <Payload>
+        <Density>2810.0</Density>
+    </Payload>
+</Rocket>
