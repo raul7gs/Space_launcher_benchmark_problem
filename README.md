@@ -20,7 +20,7 @@ The tool is already integrated in RCE. To integrate the tool in the workflow, fi
 <img width="439" alt="rcetutorial2" src="https://github.com/raul7gs/Space_launcher_benchmark_problem/assets/116161286/3a33bc8d-b3ae-46a1-999e-6f7db61db927">
 
 
-PD: In the case of the trajectory, structural constraint, cost and mass structure tools, it is necessary to install additional packages in a virtual environment for the calculations. These package are called ambiance (https://pypi.org/project/ambiance/), which is used for all the calculations involving atmospheric properties and lxml, used to get values from an XML file. As a consequence, it is necessary to include in the first line inside the execution command the activation of the environment. As an example, if conda is used for managing environments and the name of this environment is "space_problem", the line to be added would be "conda activate space_problem".
+PD: In the case of the trajectory, structural constraint, cost, geometry and mass structure tools, it is necessary to install additional packages in a virtual environment for the calculations. These packages are ambiance, numpy and lxml. As a consequence, it is necessary to include in the first line inside the execution command the activation of the environment. As an example, if conda is used for managing environments and the name of this environment is "space_problem", the line to be added would be "conda activate space_problem".
 
 # How to execute the workflow
 
